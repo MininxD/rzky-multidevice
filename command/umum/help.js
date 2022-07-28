@@ -50,20 +50,15 @@ module.exports = {
 			}
 			let str = `「 *${config.namebot}* 」
 	
-◪ *Time*
+◪ *Jam*
 ❏ ${moment.tz(config.timezone).format("HH:mm:ss")}
 
-◪ *Speed*
-❏ ${processTime(msg.messageTimestamp, moment())} _seconds_
-
-◪ *Date*
+◪ *Tanggal*
 ❏ ${moment.tz(config.timezone).format("dddd, DD/MM/YYYY")}
 
 ◪ *INFO USER*
 ❏ Nomer: 「  ${msg.sender.split("@")[0]} 」
 ❏ Nama: 「  ${conn.getName(msg.sender)} 」
-❏ Status: 「 ${isPremium ? "Premium" : owner ? "Owner" : "Standar"} 」
-${isPremium ? `❏ Expired: 「 ${xes.days} D ${xes.hours} H ${xes.minutes} M 」\n` : ""}
 
 ◪ *Fitur terpopuler saat ini*
 ${
@@ -101,17 +96,13 @@ ${
 			await conn.sendMessage(
 				msg.from,
 				{
-					video: { url: config.thumbvideo },
+					
 					caption: str,
-					gifPlayback: true,
-					footer: config.namebot + " • " + config.ownername,
+
+					footer: "mininproject.dev",
 					templateButtons: [
-						{ urlButton: { displayText: "Shortlink", url: "https://sl.rzkyfdlh.tech" } },
-						{ urlButton: { displayText: "Downloader", url: "https://down.rzkyfdlh.tech" } },
-						{ quickReplyButton: { displayText: "Script Bot📑", id: "#script" } },
-						{ quickReplyButton: { displayText: "Changelog📋", id: "#changelog" } },
-						{ quickReplyButton: { displayText: "Dashboard📊", id: "#db" } },
-					],
+						{ quickReplyButton: { displayText: "Open Source", id: "#script" } },
+						],
 				},
 				{ quoted: msg }
 			);
